@@ -1,7 +1,5 @@
 import { useColorMode, Box, Badge, Text, Flex, Stack } from "@chakra-ui/core";
 
-import Voter from "./Voter";
-
 const badgeColors = {
   BEER: "teal",
   WINE: "red",
@@ -9,16 +7,7 @@ const badgeColors = {
   FOOD: "orange",
 };
 
-const DealCard = ({
-  id,
-  userId,
-  daysActive,
-  location,
-  score,
-  userDeals,
-  description,
-  alcoholType,
-}) => {
+const DealCard = ({ daysActive, location, description, alcoholType }) => {
   const { colorMode } = useColorMode();
   const start = daysActive[0].startTime;
   const end = daysActive[0].endTime;
@@ -32,12 +21,6 @@ const DealCard = ({
       backgroundColor={colorMode === "light" ? "white" : "gray.800"}
     >
       <Flex>
-        <Voter
-          dealId={id}
-          userId={userId}
-          score={score}
-          userDeals={userDeals}
-        />
         <Stack ml={3} mt={2} mb={2} w="100%" pr={4}>
           <Flex align="baseline">
             <Badge variantColor={badgeColors[alcoholType]}>{alcoholType}</Badge>

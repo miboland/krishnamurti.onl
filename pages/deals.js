@@ -3,7 +3,6 @@ import { jsx } from "@emotion/core";
 import { Text, Flex, Spinner } from "@chakra-ui/core";
 
 import { useDeals } from "../graphql/hooks";
-import { useAuth } from "../utils/auth";
 import { useSearch } from "../utils/search";
 import { withApollo } from "../graphql/apollo";
 import App from "../components/App";
@@ -11,7 +10,6 @@ import DealCard from "../components/DealCard";
 import EmptySearch from "../components/EmptySearch";
 
 const DealsPage = () => {
-  const { userId } = useAuth();
   const { dayOfWeek, alcoholTypeFilters, search } = useSearch();
   const { data, loading } = useDeals(dayOfWeek);
 
@@ -39,9 +37,7 @@ const DealsPage = () => {
       ) : (
         <>
           {filteredDeals.length ? (
-            filteredDeals.map((deal) => (
-              <DealCard key={deal.id} userId={userId} {...deal} />
-            ))
+            filteredDeals.map((deal) => <DealCard {...deal} />)
           ) : (
             <EmptySearch />
           )}
