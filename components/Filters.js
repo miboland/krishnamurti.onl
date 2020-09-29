@@ -64,13 +64,7 @@ const Filters = (props) => {
           <Checkbox value="War">War</Checkbox>
         </CheckboxGroup>
       </Box>
-      <Flex
-        pos="fixed"
-        zIndex={2}
-        bottom="10"
-        alignItems="center"
-        alignSelf="center"
-      >
+      <Flex mt={50} alignItems="center" alignSelf="center">
         <Link href="https://boland.onl" isExternal>
           <Image src="boland.onl.png" alt="Michael Boland" size="35px"></Image>
         </Link>
