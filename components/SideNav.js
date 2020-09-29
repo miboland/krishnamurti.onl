@@ -50,7 +50,7 @@ const SideNav = (props) => {
             fontSize="sm"
             p="6"
           >
-            <PageLinks />
+            {/* <PageLinks /> */}
             <Filters />
           </Flex>
         </Box>

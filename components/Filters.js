@@ -1,55 +1,82 @@
-import {useColorMode, Box, Text, Stack, CheckboxGroup, Checkbox, Select} from '@chakra-ui/core';
+import {
+  useColorMode,
+  Box,
+  Text,
+  Stack,
+  CheckboxGroup,
+  Checkbox,
+  Select,
+  Input,
+  Image,
+  Flex,
+  Link,
+} from "@chakra-ui/core";
 
-import {useSearch} from '../utils/search';
+import { useSearch } from "../utils/search";
 
 const Filters = (props) => {
-    const {colorMode} = useColorMode();
-    const {alcoholTypeFilters, dayOfWeek, onChangeDayOfWeek, onFilterAlcoholType} = useSearch();
-    const inputBg = {light: '#EDF2F7', dark: 'gray.700'};
+  const { colorMode } = useColorMode();
+  const { topicFilters, onChangeDayOfWeek, onFilterTopic } = useSearch();
+  const inputBg = { light: "#EDF2F7", dark: "gray.700" };
 
-    return (
-        <Stack spacing={8} mb={8} {...props}>
-            <Box>
-                <Text mb={2} fontWeight="bold">
-                    {'Location'}
-                </Text>
-                <Select defaultValue="Des Moines, IA" bg={inputBg[colorMode]}>
-                    <option backgroundColor="#EDF2F7">Des Moines, IA</option>
-                </Select>
-            </Box>
-            <Box>
-                <Text mb={2} fontWeight="bold">
-                    {'Showing Deals For'}
-                </Text>
-                <Select defaultValue={dayOfWeek} onChange={onChangeDayOfWeek} bg={inputBg[colorMode]}>
-                    <option value="Monday">Monday</option>
-                    <option value="Tuesday">Tuesday</option>
-                    <option value="Wednesday">Wednesday</option>
-                    <option value="Thursday">Thursday</option>
-                    <option value="Friday">Friday</option>
-                    <option value="Saturday">Saturday</option>
-                    <option value="Sunday">Sunday</option>
-                </Select>
-            </Box>
+  return (
+    <Stack spacing={8} mb={8} {...props}>
+      <Box>
+        <Text mb={2} fontWeight="bold">
+          {"Publish Year"}
+        </Text>
+        <Input placeholder={"1969"} bg={inputBg[colorMode]} type={"number"}>
+          {/* <option backgroundColor="#EDF2F7">Des Moines, IA</option> */}
+        </Input>
+      </Box>
+      <Box>
+        <Text mb={2} fontWeight="bold">
+          {"Media Type"}
+        </Text>
+        <Select
+          placeholder={"All Types"}
+          onChange={onChangeDayOfWeek}
+          bg={inputBg[colorMode]}
+        >
+          <option value="Biography">Biography</option>
+          <option value="Interview">Interview</option>
+          <option value="Journal">Journal</option>
+          <option value="Seminar">Seminar</option>
+        </Select>
+      </Box>
 
-            <Box>
-                <Text mb={2} fontWeight="bold">
-                    {'Deal Type'}
-                </Text>
-                <CheckboxGroup
-                    onChange={onFilterAlcoholType}
-                    spacing={2}
-                    variantColor="teal"
-                    value={alcoholTypeFilters}
-                >
-                    <Checkbox value="BEER">Beer</Checkbox>
-                    <Checkbox value="WINE">Wine</Checkbox>
-                    <Checkbox value="LIQUOR">Liquor</Checkbox>
-                    <Checkbox value="FOOD">Food</Checkbox>
-                </CheckboxGroup>
-            </Box>
-        </Stack>
-    );
+      <Box>
+        <Text mb={2} fontWeight="bold">
+          {"Topic"}
+        </Text>
+        <CheckboxGroup
+          onChange={onFilterTopic}
+          spacing={2}
+          variantColor="teal"
+          value={topicFilters}
+        >
+          <Checkbox value="Education">Education</Checkbox>
+          <Checkbox value="Loneliness">Loneliness</Checkbox>
+          <Checkbox value="Love">Love</Checkbox>
+          <Checkbox value="Religion">Religion</Checkbox>
+          <Checkbox value="Thought">Thought</Checkbox>
+          <Checkbox value="Time">Time</Checkbox>
+          <Checkbox value="War">War</Checkbox>
+        </CheckboxGroup>
+      </Box>
+      <Flex
+        pos="fixed"
+        zIndex={2}
+        bottom="10"
+        alignItems="center"
+        alignSelf="center"
+      >
+        <Link href="https://boland.onl" isExternal>
+          <Image src="boland.onl.png" alt="Michael Boland" size="35px"></Image>
+        </Link>
+      </Flex>
+    </Stack>
+  );
 };
 
 export default Filters;

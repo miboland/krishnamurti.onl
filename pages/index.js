@@ -20,12 +20,12 @@ const DealsPage = () => {
 
   return (
     <App width="full" maxWidth="1280px" mx="auto" px={6} py={6}>
-      <Text mb={2} fontSize="sm">
+      {/* <Text mb={2} fontSize="sm">
         {"Active "}
         <b>{dayOfWeek}</b>
         {" in "}
         <b>{"Des Moines"}</b>
-      </Text>
+      </Text> */}
       {/* {loading ? (
         <Flex pt={24} align="center" justify="center">
           <Spinner size="xl" label="Loading Deals" />
@@ -38,7 +38,7 @@ const DealsPage = () => {
           <EmptySearch />
         )}
         <Flex justify="flex-end" as="i" color="gray.500">
-          {`Showing ${filteredDeals.length} out of ${allDeals.length} deals in Des Moines`}
+          {`Showing ${filteredDeals.length} out of ${allDeals.length} results`}
         </Flex>
         <Flex mt={8} display={["block", "none", "none", "none"]}></Flex>
       </>

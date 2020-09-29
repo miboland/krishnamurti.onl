@@ -99,7 +99,7 @@ const Header = (props) => {
               value={search}
               ref={inputRef}
               autoFocus={slashPress}
-              placeholder={`Search for deals (Press "/" to focus)`}
+              placeholder={`Search (Press "/" to focus)`}
               bg={colorMode === "light" ? "gray.100" : "gray.700"}
             />
           </InputGroup>

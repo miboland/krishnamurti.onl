@@ -1,20 +1,22 @@
 const SEO = {
-  title: "daydrink | Find the best drink deals and happy hours in your area.",
-  description: "Find the best drink deals and happy hours in your area.",
+  title: "Krishnamurti Center",
+  description:
+    "The collected life works, biographies, and personal writings of Jiddu Krishnamurti.",
   openGraph: {
-    url: "https://daydrink.io",
-    title: "daydrink",
-    description: "Find the best drink deals and happy hours in your area.",
+    url: "https://krishnamurti.onl",
+    title: "krishnamurti.onl",
+    description:
+      "The collected life works, biographies, and personal writings of Jiddu Krishnamurti.",
     images: [
       {
         url: "https://daydrink.io/images/banner.png",
         width: 1200,
         height: 630,
         alt:
-          "daydrink | Find the best drink deals and happy hours in your area.",
+          "Krishnamurti Center | The collected life works, biographies, and personal writings of Jiddu Krishnamurti.",
       },
     ],
-    site_name: "daydrink",
+    site_name: "krishnamurti.onl",
   },
 };
 
