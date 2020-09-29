@@ -3,11 +3,7 @@ import React from "react";
 
 import { ComponentLink } from "./NavLink";
 import AddDealModal from "./AddDealModal";
-import Deal from "../../krishnamurti.onl/icons/Deal";
 import Filters from "./Filters";
-import Home from "../../krishnamurti.onl/icons/Home";
-import Map from "../../krishnamurti.onl/icons/Map";
-import WineGlass from "../../krishnamurti.onl/icons/WineGlass";
 
 const SideNavLink = ({ href, children, icon }) => (
   <ComponentLink href={href}>
