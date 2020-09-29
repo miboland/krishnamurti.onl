@@ -42,7 +42,6 @@ const DealsPage = () => {
         </Flex>
         <Flex mt={8} display={["block", "none", "none", "none"]}></Flex>
       </>
-      )
     </App>
   );
 };
