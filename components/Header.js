@@ -12,7 +12,7 @@ import {
 import { jsx } from "@emotion/core";
 import { useState, useEffect, useRef } from "react";
 
-import MobileNav from "../../krishnamurti.onl/components/MobileNav";
+import MobileNav from "./MobileNav";
 import Logo from "./Logo";
 
 const useKeyPress = (targetKey) => {

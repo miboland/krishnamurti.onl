@@ -9,7 +9,6 @@ import {
   Flex,
   Stack,
 } from "@chakra-ui/core";
-// import Location from "../../krishnamurti.onl/icons/Location";
 
 interface BarProps {
   name: string;
