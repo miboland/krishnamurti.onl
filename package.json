@@ -2,7 +2,7 @@
     "name": "daydrink",
     "private": false,
     "engines": {
-        "node": "12.13.1",
+        "node": "12.18.3",
         "yarn": ">=1.10.0"
     },
     "scripts": {
