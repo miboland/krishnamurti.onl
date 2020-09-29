@@ -2,7 +2,6 @@ import { useColorMode, Stack, Text, Box, Flex } from "@chakra-ui/core";
 import React from "react";
 
 import { ComponentLink } from "./NavLink";
-import AddDealModal from "./AddDealModal";
 import Filters from "./Filters";
 
 const SideNavLink = ({ href, children, icon }) => (
@@ -61,7 +60,6 @@ const SideNav = (props) => {
           >
             <PageLinks />
             <Filters />
-            <AddDealModal />
           </Flex>
         </Box>
       </Box>
