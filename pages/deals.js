@@ -1,8 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "@emotion/core";
 import { Text, Flex, Spinner } from "@chakra-ui/core";
-
-import { useDeals } from "../graphql/hooks";
 import { useSearch } from "../utils/search";
 import App from "../components/App";
 import DealCard from "../components/DealCard";
@@ -10,13 +8,12 @@ import EmptySearch from "../components/EmptySearch";
 
 const DealsPage = () => {
   const { dayOfWeek, alcoholTypeFilters, search } = useSearch();
-  const { data, loading } = useDeals(dayOfWeek);
 
   const matchesSearch = (deal) =>
     deal.description.toLowerCase().includes(search.toLowerCase());
   const matchesAlcoholType = (deal) =>
     alcoholTypeFilters.includes(deal.alcoholType);
-  const allDeals = data ? data.deals : [];
+  const allDeals = [];
   const filteredDeals = allDeals
     .filter(matchesSearch)
     .filter(matchesAlcoholType);
@@ -29,23 +26,23 @@ const DealsPage = () => {
         {" in "}
         <b>{"Des Moines"}</b>
       </Text>
-      {loading ? (
+      {/* {loading ? (
         <Flex pt={24} align="center" justify="center">
           <Spinner size="xl" label="Loading Deals" />
         </Flex>
-      ) : (
-        <>
-          {filteredDeals.length ? (
-            filteredDeals.map((deal) => <DealCard {...deal} />)
-          ) : (
-            <EmptySearch />
-          )}
-          <Flex justify="flex-end" as="i" color="gray.500">
-            {`Showing ${filteredDeals.length} out of ${allDeals.length} deals in Des Moines`}
-          </Flex>
-          <Flex mt={8} display={["block", "none", "none", "none"]}></Flex>
-        </>
-      )}
+      ) : ( */}
+      <>
+        {filteredDeals.length ? (
+          filteredDeals.map((deal) => <DealCard {...deal} />)
+        ) : (
+          <EmptySearch />
+        )}
+        <Flex justify="flex-end" as="i" color="gray.500">
+          {`Showing ${filteredDeals.length} out of ${allDeals.length} deals in Des Moines`}
+        </Flex>
+        <Flex mt={8} display={["block", "none", "none", "none"]}></Flex>
+      </>
+      )
     </App>
   );
 };
