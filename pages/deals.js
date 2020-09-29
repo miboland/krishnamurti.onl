@@ -4,7 +4,6 @@ import { Text, Flex, Spinner } from "@chakra-ui/core";
 
 import { useDeals } from "../graphql/hooks";
 import { useSearch } from "../utils/search";
-import { withApollo } from "../graphql/apollo";
 import App from "../components/App";
 import DealCard from "../components/DealCard";
 import EmptySearch from "../components/EmptySearch";
@@ -51,6 +50,4 @@ const DealsPage = () => {
   );
 };
 
-export default withApollo(DealsPage, {
-  ssr: false,
-});
+export default DealsPage;
