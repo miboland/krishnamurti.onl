@@ -10,14 +10,7 @@ import {
   Stack,
 } from "@chakra-ui/core";
 
-interface BarProps {
-  name: string;
-  address: string;
-  deals: object[];
-  imageUrl: string;
-}
-
-const BarCard = ({ name, address, deals, imageUrl }: BarProps) => {
+const BarCard = ({ name, address, deals, imageUrl }) => {
   const { colorMode } = useColorMode();
   const badge =
     deals.length === 1 ? `${deals.length} deal` : `${deals.length} deals`;
