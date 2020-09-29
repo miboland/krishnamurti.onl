@@ -11,7 +11,7 @@ const BarsPage = () => {
 
   const matchesSearch = (location) =>
     location.name.toLowerCase().includes(search.toLowerCase());
-  const allLocations = data ? data.locations : [];
+  const allLocations = [];
   const filteredLocations = allLocations.filter(matchesSearch);
 
   return (
@@ -19,20 +19,20 @@ const BarsPage = () => {
       <Text mb={2} fontWeight="bold">
         {"Open Now"}
       </Text>
-      {!data ? (
+      {/* {!data ? (
         <Flex pt={24} align="center" justify="center">
           <Spinner size="xl" label="Loading Deals" />
         </Flex>
-      ) : (
-        <>
-          {filteredLocations.map((bar) => (
-            <BarCard key={bar.id} {...bar} />
-          ))}
-          <Flex justify="flex-end" as="i" color="gray.500">
-            {`Showing ${filteredLocations.length} out of ${allLocations.length} bars in Des Moines`}
-          </Flex>
-        </>
-      )}
+      ) : ( */}
+      <>
+        {filteredLocations.map((bar) => (
+          <BarCard key={bar.id} {...bar} />
+        ))}
+        <Flex justify="flex-end" as="i" color="gray.500">
+          {`Showing ${filteredLocations.length} out of ${allLocations.length} bars in Des Moines`}
+        </Flex>
+      </>
+      )
     </App>
   );
 };

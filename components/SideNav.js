@@ -15,18 +15,10 @@ const SideNavLink = ({ href, children, icon }) => (
 
 const PageLinks = () => (
   <Stack spacing={0} mb={8}>
-    <SideNavLink href="/" icon={}>
-      {"Home"}
-    </SideNavLink>
-    <SideNavLink href="/deals" icon={}>
-      {"Deals"}
-    </SideNavLink>
-    <SideNavLink href="/bars" icon={}>
-      {"Bars"}
-    </SideNavLink>
-    <SideNavLink href="/map" icon={}>
-      {"Map"}
-    </SideNavLink>
+    <SideNavLink href="/">{"Home"}</SideNavLink>
+    <SideNavLink href="/deals">{"Deals"}</SideNavLink>
+    <SideNavLink href="/bars">{"Bars"}</SideNavLink>
+    <SideNavLink href="/map">{"Map"}</SideNavLink>
   </Stack>
 );
 
