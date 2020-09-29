@@ -24,7 +24,7 @@ import {
 import { GET_DEALS_QUERY, GET_LOCATIONS_QUERY } from "../graphql/queries";
 import { CREATE_DEAL_MUTATION } from "../graphql/mutations";
 import { useSearch } from "../utils/search";
-import { withAuthModal } from "../../krishnamurti.onll/components/Auth";
+import { withAuthModal } from "../../krishnamurti.onl/components/Auth";
 import { useAuth } from "../utils/auth";
 import WeekdayButtonGroup from "./WeekdayButtonGroup";
 
