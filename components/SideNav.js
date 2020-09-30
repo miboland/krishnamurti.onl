@@ -6,19 +6,17 @@ import Filters from "./Filters";
 
 const SideNavLink = ({ href, children, icon }) => (
   <ComponentLink href={href}>
-    <Flex align="center" p={1}>
-      <Box as={icon} mr={3} w="24px" />
+    <Flex align="left" p={1}>
+      {/* <Box as={icon} mr={3} w="24px" /> */}
       <Text fontWeight="bold">{children}</Text>
     </Flex>
   </ComponentLink>
 );
 
 const PageLinks = () => (
-  <Stack spacing={0} mb={8}>
+  <Stack spacing={0} mb={0}>
     <SideNavLink href="/">{"Home"}</SideNavLink>
-    <SideNavLink href="/deals">{"Deals"}</SideNavLink>
-    <SideNavLink href="/bars">{"Bars"}</SideNavLink>
-    <SideNavLink href="/map">{"Map"}</SideNavLink>
+    <SideNavLink href="/about">{"About"}</SideNavLink>
   </Stack>
 );
 
@@ -50,7 +48,7 @@ const SideNav = (props) => {
             fontSize="sm"
             p="6"
           >
-            {/* <PageLinks /> */}
+            <PageLinks />
             <Filters />
           </Flex>
         </Box>

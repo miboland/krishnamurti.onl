@@ -3,20 +3,19 @@ import { jsx } from "@emotion/core";
 import { Text, Flex, Spinner } from "@chakra-ui/core";
 import { useSearch } from "../utils/search";
 import App from "../components/App";
-import DealCard from "../components/DealCard";
+import MediaCard from "../components/MediaCard";
 import EmptySearch from "../components/EmptySearch";
+import { createGlossary } from "../utils/glossary";
 
-const DealsPage = () => {
-  const { dayOfWeek, alcoholTypeFilters, search } = useSearch();
+const HomePage = () => {
+  const { alcoholTypeFilters, search } = useSearch();
 
-  const matchesSearch = (deal) =>
-    deal.description.toLowerCase().includes(search.toLowerCase());
-  const matchesAlcoholType = (deal) =>
-    alcoholTypeFilters.includes(deal.alcoholType);
-  const allDeals = [];
-  const filteredDeals = allDeals
-    .filter(matchesSearch)
-    .filter(matchesAlcoholType);
+  const glossary = createGlossary();
+  const matchesSearch = (epub) =>
+    epub.title.toLowerCase().includes(search.toLowerCase());
+  // const matchesAlcoholType = (deal) =>
+  //   alcoholTypeFilters.includes(deal.alcoholType);
+  const filteredMedia = glossary.filter(matchesSearch);
 
   return (
     <App width="full" maxWidth="1280px" mx="auto" px={6} py={6}>
@@ -32,13 +31,13 @@ const DealsPage = () => {
         </Flex>
       ) : ( */}
       <>
-        {filteredDeals.length ? (
-          filteredDeals.map((deal) => <DealCard {...deal} />)
+        {filteredMedia.length ? (
+          filteredMedia.map((epub) => <MediaCard key={epub.title} {...epub} />)
         ) : (
           <EmptySearch />
         )}
         <Flex justify="flex-end" as="i" color="gray.500">
-          {`Showing ${filteredDeals.length} out of ${allDeals.length} results`}
+          {`Showing ${filteredMedia.length} out of ${glossary.length} results`}
         </Flex>
         <Flex mt={8} display={["block", "none", "none", "none"]}></Flex>
       </>
@@ -46,4 +45,4 @@ const DealsPage = () => {
   );
 };
 
-export default DealsPage;
+export default HomePage;

@@ -12,7 +12,7 @@ class Document extends NextDocument {
       <Html>
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <meta title="Daydrink | Find the best drink deals and happy hours in your area." />
+          <meta title="Krishnamurti Center | The collected life works, biographies, and personal writings of Jiddu Krishnamurti." />
           <link rel="icon" sizes="96x96" href="/favicons/favicon.ico" />
           <meta name="theme-color" content="#319795"></meta>
         </Head>

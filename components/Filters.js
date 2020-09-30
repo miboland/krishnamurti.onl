@@ -7,12 +7,14 @@ import {
   Checkbox,
   Select,
   Input,
-  Image,
+  IconButton,
   Flex,
   Link,
 } from "@chakra-ui/core";
 
 import { useSearch } from "../utils/search";
+import Github from "../icons/Github";
+import Boland from "../icons/Boland";
 
 const Filters = (props) => {
   const { colorMode } = useColorMode();
@@ -25,9 +27,11 @@ const Filters = (props) => {
         <Text mb={2} fontWeight="bold">
           {"Publish Year"}
         </Text>
-        <Input placeholder={"1969"} bg={inputBg[colorMode]} type={"number"}>
-          {/* <option backgroundColor="#EDF2F7">Des Moines, IA</option> */}
-        </Input>
+        <Input
+          placeholder={"1969"}
+          bg={inputBg[colorMode]}
+          type={"number"}
+        ></Input>
       </Box>
       <Box>
         <Text mb={2} fontWeight="bold">
@@ -65,8 +69,27 @@ const Filters = (props) => {
         </CheckboxGroup>
       </Box>
       <Flex mt={50} alignItems="center" alignSelf="center">
-        <Link href="https://boland.onl" isExternal>
-          <Image src="boland.onl.png" alt="Michael Boland" size="35px"></Image>
+        <Link
+          href="https://github.com/miboland/krishnamurti.onl"
+          title="GitHub"
+          isExternal
+        >
+          <IconButton
+            aria-label="GitHub"
+            icon={Github}
+            size="lg"
+            color="gray.500"
+            variant="ghost"
+          />
+        </Link>
+        <Link href="https://boland.onl" title="Boland" isExternal>
+          <IconButton
+            aria-label="Boland"
+            icon={Boland}
+            size="lg"
+            color="gray.500"
+            variant="ghost"
+          />
         </Link>
       </Flex>
     </Stack>

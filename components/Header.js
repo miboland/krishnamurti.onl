@@ -8,6 +8,8 @@ import {
   InputLeftElement,
   Input,
   Icon,
+  Image,
+  Link,
 } from "@chakra-ui/core";
 import { jsx } from "@emotion/core";
 import { useState, useEffect, useRef } from "react";
@@ -80,9 +82,9 @@ const Header = (props) => {
             as="a"
             d="block"
             href="/"
-            aria-label="daydrink, Back to homepage"
+            aria-label="Krishnamurti Center, Back to homepage"
           >
-            <Logo w="100px" />
+            <Logo w="185px" />
           </Box>
           <InputGroup
             display={["none", null, !hideSearch && "block"]}
