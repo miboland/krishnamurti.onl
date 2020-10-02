@@ -25,7 +25,7 @@ const MediaCard = ({
   published,
   slug,
   path,
-  goodreads,
+  goodreadsURL,
   cover,
 }) => {
   const { colorMode } = useColorMode();
@@ -42,13 +42,17 @@ const MediaCard = ({
       backgroundColor={colorMode === "light" ? "white" : "gray.800"}
     >
       <Flex>
-        <Image alignSelf="top" mr={4} src={cover} maxHeight="200px"></Image>
+        <Link href={`/media/${slug}`} title={title}>
+          <Image alignSelf="top" mr={4} src={cover} maxHeight="200px"></Image>
+        </Link>
 
         <Stack ml={3} mt={2} mb={2} mr={2}>
           <Box>
-            <Text fontSize="xl" fontWeight="semibold" lineHeight="short">
-              {title}
-            </Text>
+            <Link href={`/media/${slug}`} title={title}>
+              <Text fontSize="xl" fontWeight="semibold" lineHeight="short">
+                {title}
+              </Text>
+            </Link>
             <Flex>
               <StarRatingComponent
                 name="rating"
@@ -56,12 +60,7 @@ const MediaCard = ({
                 value={4}
                 edit={false}
               />
-              <Link
-                ml={3}
-                href="https://www.goodreads.com/book/show/64710.The_First_and_Last_Freedom"
-                title="Goodreads"
-                isExternal
-              >
+              <Link ml={3} href={goodreadsURL} title="Goodreads" isExternal>
                 <IconButton
                   aria-label="Goodreads"
                   icon={Goodreads}
