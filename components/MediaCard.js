@@ -21,15 +21,15 @@ import Goodreads from "../icons/Goodreads";
 
 const MediaCard = ({
   title,
-  description,
-  details,
   published,
-  slug,
-  path,
-  goodreadsURL,
+  summary,
+  __resourcePath,
+  goodreads,
   cover,
 }) => {
   const { colorMode } = useColorMode();
+
+  const slug = __resourcePath.replace("media/", "").replace(".mdx", "");
 
   return (
     <Box
@@ -43,17 +43,22 @@ const MediaCard = ({
       backgroundColor={colorMode === "light" ? "white" : "gray.800"}
     >
       <Flex>
-        <NextLink href={`/media/${slug}`} passHref>
-          <Image alignSelf="top" mr={4} src={cover} maxHeight="200px" />
-        </NextLink>
+        <Link href={`/media/${slug}`} passHref>
+          <Image
+            alignSelf="top"
+            mr={4}
+            src={`/covers/${cover}`}
+            maxH={[0, 0, 0, 200]}
+          />
+        </Link>
 
         <Stack ml={3} mt={2} mb={2} mr={2}>
           <Box>
-            <NextLink href={`/media/${slug}`}>
+            <Link href={`/media/${slug}`}>
               <Text fontSize="xl" fontWeight="semibold" lineHeight="short">
                 {title}
               </Text>
-            </NextLink>
+            </Link>
             <Flex>
               <StarRatingComponent
                 name="rating"
@@ -61,7 +66,7 @@ const MediaCard = ({
                 value={4}
                 edit={false}
               />
-              <Link ml={3} href={goodreadsURL} title="Goodreads" isExternal>
+              <Link ml={3} href={goodreads} title="Goodreads" isExternal>
                 <IconButton
                   aria-label="Goodreads"
                   icon={Goodreads}
@@ -78,9 +83,9 @@ const MediaCard = ({
             {published}
           </Text>
           <Text fontSize="sm" fontWeight="regular" lineHeight="short" mr={4}>
-            {description}
+            {summary}
           </Text>
-          <AccordionItem style={{ border: "none" }} ml={-4}>
+          {/* <AccordionItem style={{ border: "none" }} ml={-4}>
             <AccordionHeader width="100px">
               <Box flex="1" textAlign="left" fontSize="sm">
                 Details
@@ -90,7 +95,7 @@ const MediaCard = ({
             <AccordionPanel fontSize="sm" pb={4}>
               {details}
             </AccordionPanel>
-          </AccordionItem>
+          </AccordionItem> */}
         </Stack>
       </Flex>
     </Box>

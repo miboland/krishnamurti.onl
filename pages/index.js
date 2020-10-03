@@ -1,3 +1,5 @@
+// eslint-disable-next-line eslint-comments/disable-enable-pair
+/* eslint-disable import/extensions */
 /** @jsx jsx */
 import { jsx } from "@emotion/core";
 import { Flex } from "@chakra-ui/core";
@@ -6,7 +8,7 @@ import { useSearch } from "../utils/search";
 import App from "../components/App";
 import MediaCard from "../components/MediaCard";
 import EmptySearch from "../components/EmptySearch";
-
+// eslint-disable-next-line import/no-unresolved
 import { frontMatter as media } from "../pages/media/*.mdx";
 
 const HomePage = () => {
