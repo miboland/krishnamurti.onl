@@ -3,6 +3,7 @@ import { jsx } from "@emotion/core";
 import { useColorMode, Box } from "@chakra-ui/core";
 
 import { useSearch } from "../utils/search";
+
 import SideNav from "./SideNav";
 import Header from "./Header";
 

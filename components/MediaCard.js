@@ -1,3 +1,4 @@
+import React from "react";
 import {
   useColorMode,
   Box,
@@ -6,7 +7,6 @@ import {
   Flex,
   Stack,
   Image,
-  Icon,
   IconButton,
   Link,
   AccordionItem,
@@ -14,8 +14,9 @@ import {
   AccordionIcon,
   AccordionPanel,
 } from "@chakra-ui/core";
-
+import NextLink from "next/link";
 import StarRatingComponent from "react-star-rating-component";
+
 import Goodreads from "../icons/Goodreads";
 
 const MediaCard = ({
@@ -42,17 +43,17 @@ const MediaCard = ({
       backgroundColor={colorMode === "light" ? "white" : "gray.800"}
     >
       <Flex>
-        <Link href={`/media/${slug}`} title={title}>
-          <Image alignSelf="top" mr={4} src={cover} maxHeight="200px"></Image>
-        </Link>
+        <NextLink href={`/media/${slug}`} passHref>
+          <Image alignSelf="top" mr={4} src={cover} maxHeight="200px" />
+        </NextLink>
 
         <Stack ml={3} mt={2} mb={2} mr={2}>
           <Box>
-            <Link href={`/media/${slug}`} title={title}>
+            <NextLink href={`/media/${slug}`}>
               <Text fontSize="xl" fontWeight="semibold" lineHeight="short">
                 {title}
               </Text>
-            </Link>
+            </NextLink>
             <Flex>
               <StarRatingComponent
                 name="rating"
@@ -67,7 +68,7 @@ const MediaCard = ({
                   size="xs"
                   color="gray.500"
                   variant="ghost"
-                ></IconButton>
+                />
               </Link>
             </Flex>
           </Box>

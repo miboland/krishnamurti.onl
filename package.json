@@ -1,33 +1,72 @@
 {
-  "name": "daydrink",
-  "private": false,
+  "name": "krishnamurti.onl",
+  "description": "The Krishnamurti Center website.",
+  "version": "0.0.0",
+  "author": {
+    "name": "Michael Boland",
+    "email": "michael@boland.onl",
+    "url": "https://boland.onl"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miboland/krishnamurti.onl.git"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "lint": "eslint . --ext .json --ext .js",
+    "prettier": "prettier --write \"**/*.{html,js,json,md,mdx,yml}\"",
     "start": "next start",
-    "test": "jest"
+    "test": "yarn lint",
+    "postinstall": "patch-package"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{html,js,json,md,mdx,yml}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "dependencies": {
-    "@chakra-ui/core": "^0.5.2",
-    "@emotion/core": "10.0.27",
+    "@chakra-ui/core": "0.8.0",
+    "@emotion/core": "10.0.28",
     "@emotion/styled": "10.0.27",
-    "date-fns": "^2.9.0",
+    "@mapbox/rehype-prism": "0.4.0",
+    "@mdx-js/loader": "1.5.8",
+    "@mdx-js/react": "1.5.8",
+    "@next/mdx": "9.4.1",
+    "babel-plugin-import-glob-array": "0.2.0",
+    "comma-number": "2.0.1",
+    "date-fns": "2.13.0",
     "emotion-theming": "10.0.27",
-    "epubjs": "^0.3.88",
-    "graphql": "^14.5.8",
-    "graphql-tag": "^2.10.1",
-    "isomorphic-unfetch": "^3.0.0",
-    "next": "9.2.0",
-    "next-seo": "3.3.0",
-    "next-transpile-modules": "^4.1.0",
-    "query-string": "^6.10.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-hook-form": "^4.5.5",
-    "react-reader": "^0.18.5",
+    "mdx-prism": "0.3.1",
+    "next": "9.4.1",
+    "next-google-fonts": "1.1.0",
+    "next-mdx-enhanced": "3.0.0",
+    "next-seo": "4.5.0",
+    "patch-package": "6.2.2",
+    "postinstall-postinstall": "2.1.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "reading-time": "1.2.0",
+    "remark-autolink-headings": "6.0.0",
+    "remark-capitalize": "1.1.0",
+    "remark-code-titles": "0.1.1",
+    "remark-slug": "6.0.0",
+    "swr": "0.2.0",
     "react-star-rating-component": "^1.4.1"
   },
   "devDependencies": {
-    "mutationobserver-shim": "^0.3.3"
+    "eslint": "6.8.0",
+    "eslint-config-get-off-my-lawn": "5.0.1",
+    "globby": "11.0.0",
+    "husky": "4.2.3",
+    "lint-staged": "10.1.2",
+    "prettier": "2.0.5",
+    "rehype": "10.0.0"
   }
 }

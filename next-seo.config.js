@@ -16,7 +16,6 @@ const SEO = {
           "Krishnamurti Center | The collected life works, biographies, and personal writings of Jiddu Krishnamurti.",
       },
     ],
-    site_name: "krishnamurti.onl",
   },
 };
 

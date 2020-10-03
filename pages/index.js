@@ -1,21 +1,24 @@
 /** @jsx jsx */
 import { jsx } from "@emotion/core";
-import { Text, Flex, Spinner } from "@chakra-ui/core";
+import { Flex } from "@chakra-ui/core";
+
 import { useSearch } from "../utils/search";
 import App from "../components/App";
 import MediaCard from "../components/MediaCard";
 import EmptySearch from "../components/EmptySearch";
-import { createGlossary } from "../utils/glossary";
+
+import { frontMatter as media } from "../pages/media/*.mdx";
 
 const HomePage = () => {
   const { alcoholTypeFilters, search } = useSearch();
 
-  const glossary = createGlossary();
   const matchesSearch = (epub) =>
     epub.title.toLowerCase().includes(search.toLowerCase());
   // const matchesAlcoholType = (deal) =>
   //   alcoholTypeFilters.includes(deal.alcoholType);
-  const filteredMedia = glossary.filter(matchesSearch);
+  const filteredMedia = media.filter(matchesSearch);
+
+  console.log(media);
 
   return (
     <App width="full" maxWidth="1280px" mx="auto" px={6} py={6}>
@@ -32,14 +35,14 @@ const HomePage = () => {
       ) : ( */}
       <>
         {filteredMedia.length ? (
-          filteredMedia.map((epub) => <MediaCard key={epub.title} {...epub} />)
+          filteredMedia.map((file) => <MediaCard key={file.title} {...file} />)
         ) : (
           <EmptySearch />
         )}
         <Flex justify="flex-end" as="i" color="gray.500">
-          {`Showing ${filteredMedia.length} out of ${glossary.length} results`}
+          {`Showing ${filteredMedia.length} out of ${media.length} results`}
         </Flex>
-        <Flex mt={8} display={["block", "none", "none", "none"]}></Flex>
+        <Flex mt={8} display={["block", "none", "none", "none"]} />
       </>
     </App>
   );
