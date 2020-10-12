@@ -4,6 +4,7 @@ import { jsx } from "@emotion/core";
 
 const Github = (props) => {
   const { colorMode } = useColorMode();
+
   return (
     <Box
       as="svg"

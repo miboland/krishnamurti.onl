@@ -1,3 +1,4 @@
+/** @jsx jsx */
 import {
   useColorMode,
   Box,
@@ -11,6 +12,7 @@ import {
   Flex,
   Link,
 } from "@chakra-ui/core";
+import { jsx } from "@emotion/core";
 
 import { useSearch } from "../utils/search";
 import Github from "../icons/Github";
@@ -27,11 +29,7 @@ const Filters = (props) => {
         <Text mb={2} fontWeight="bold">
           {"Publish Year"}
         </Text>
-        <Input
-          placeholder={"1969"}
-          bg={inputBg[colorMode]}
-          type={"number"}
-        ></Input>
+        <Input placeholder={"1969"} bg={inputBg[colorMode]} type={"number"} />
       </Box>
       <Box>
         <Text mb={2} fontWeight="bold">
@@ -84,7 +82,7 @@ const Filters = (props) => {
         </Link>
         <Link href="https://boland.onl" title="Boland" isExternal>
           <IconButton
-            aria-label="Boland"
+            aria-label="boland.onl"
             icon={Boland}
             size="lg"
             color="gray.500"
