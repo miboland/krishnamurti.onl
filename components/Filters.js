@@ -82,7 +82,7 @@ const Filters = (props) => {
         </Link>
         <Link href="https://boland.onl" title="Boland" isExternal>
           <IconButton
-            aria-label="boland.onl"
+            aria-label="Boland"
             icon={Boland}
             size="lg"
             color="gray.500"
